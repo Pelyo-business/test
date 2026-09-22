@@ -1,0 +1,177 @@
+/* =========================================================================
+   Resto IA — application GÉRANT · direction B « Console silencieuse ».
+
+   Anthracite mat #141414, blanc cassé #F2EFEA, un seul accent cuivre
+   #C98A5B, typographie Outfit. La hiérarchie ne tient qu'à deux choses :
+   la taille et l'opacité. Aucune bordure, aucun fond de bloc, aucun
+   séparateur, aucune pastille — les seules surfaces peintes sont les
+   feuilles plein écran, qui ont forcément un fond.
+
+   Toutes les classes commencent par g-. Ce fichier n'est chargé que
+   lorsque l'application s'ouvre ; il ne touche jamais base.css.
+   ========================================================================= */
+
+/* ------------------------------ la scène ------------------------------ */
+.g-app{
+  position:absolute;inset:0;background:#141414;color:#F2EFEA;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;
+  font-weight:300;display:flex;flex-direction:column;
+  padding:0 30px 34px;overflow:hidden;
+}
+.g-app *{min-width:0}
+.g-app :focus-visible{outline:2px solid #C98A5B;outline-offset:4px;border-radius:2px}
+.g-app button{font:inherit;color:inherit;background:none;border:0;padding:0;
+  cursor:pointer;text-align:inherit;letter-spacing:inherit}
+
+/* --------------------------- barre de tête --------------------------- */
+.g-status{
+  height:46px;flex:none;display:flex;align-items:center;justify-content:space-between;
+  font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;opacity:.3;font-weight:300;
+  font-variant-numeric:tabular-nums;
+}
+.g-top{
+  flex:none;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;
+  opacity:.34;font-weight:300;padding-top:6px;
+}
+
+/* -------------------------- le corps dominant -------------------------- */
+.g-center{
+  flex:1;min-height:0;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+}
+.g-center.g-flow{justify-content:flex-start;overflow-y:auto;scrollbar-width:none}
+.g-center.g-flow::-webkit-scrollbar{display:none}
+
+.g-mode{font-size:86px;font-weight:200;letter-spacing:-.045em;line-height:.95}
+.g-mode.g-mid{font-size:64px}
+.g-mode.g-small{font-size:42px;line-height:1.05;max-width:300px}
+.g-name{font-size:76px;font-weight:200;letter-spacing:-.045em;line-height:1}
+.g-total{font-size:64px;font-weight:200;letter-spacing:-.04em;line-height:1;text-align:center}
+.g-figure{font-size:72px;font-weight:200;letter-spacing:-.045em;line-height:1}
+.g-figure small{font-size:22px;opacity:.3;letter-spacing:-.01em;margin-left:4px}
+
+.g-delay{
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#C98A5B;
+  margin-top:20px;font-weight:400;
+}
+.g-say{font-size:12.5px;line-height:1.6;opacity:.38;font-weight:300;max-width:250px;margin-top:22px}
+
+/* ------------------------------- le pied ------------------------------- */
+.g-foot{flex:none;display:flex;flex-direction:column;gap:13px;align-items:center;text-align:center}
+.g-dial{
+  display:flex;gap:16px;justify-content:center;flex-wrap:wrap;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:300;
+}
+.g-dial button{opacity:.24;transition:opacity .18s,color .18s}
+.g-dial button.g-on{opacity:1;color:#C98A5B}
+.g-dial button:active{opacity:.6}
+.g-micro{font-size:10px;line-height:1.7;opacity:.3;font-weight:300;letter-spacing:.02em;max-width:280px}
+.g-micro.g-dim{opacity:.18}
+.g-acts{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;padding-top:4px}
+.g-act{
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#C98A5B;
+  font-weight:400;transition:opacity .16s;
+}
+.g-act:active{opacity:.55}
+.g-act.g-off{color:#F2EFEA;opacity:.28}
+
+/* ----------------------------- navigation -----------------------------
+   Une console silencieuse n'a pas d'onglets : le nom de l'écran, posé
+   tout en bas, s'ouvre sur la liste des écrans.                          */
+.g-nav{
+  flex:none;padding-top:18px;display:flex;justify-content:center;align-items:center;gap:9px;
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:300;
+}
+.g-nav em{font-style:normal;opacity:.5}
+.g-nav i{width:3px;height:3px;border-radius:50%;background:#C98A5B;display:block;opacity:.7}
+.g-nav:active{opacity:.6}
+
+.g-menu{display:flex;flex-direction:column;gap:22px;align-items:flex-start;padding-top:8px}
+.g-menu button{font-size:30px;font-weight:200;letter-spacing:-.03em;opacity:.28;line-height:1}
+.g-menu button.g-on{opacity:1;color:#C98A5B}
+
+/* ------------------------------- listes -------------------------------
+   Des lignes, pas des cartes : aucun fond, aucun filet.                  */
+.g-list{width:100%;display:flex;flex-direction:column;gap:15px;text-align:left}
+.g-row{display:flex;align-items:baseline;gap:14px;width:100%}
+.g-row .g-k{flex:1;font-size:15px;font-weight:300;opacity:.86;line-height:1.35}
+.g-row .g-s{display:block;font-size:10px;letter-spacing:.06em;opacity:.32;margin-top:3px;line-height:1.5}
+.g-row .g-v{
+  flex:none;font-size:11px;letter-spacing:.08em;opacity:.44;font-variant-numeric:tabular-nums;
+  font-weight:300;
+}
+.g-row .g-v.g-cu{color:#C98A5B;opacity:.9;letter-spacing:.16em;text-transform:uppercase;font-size:9.5px}
+.g-row.g-out .g-k{opacity:.3}
+.g-row button{display:block;width:100%}
+.g-row:active{opacity:.7}
+
+/* ------------------------------- textes ------------------------------- */
+.g-note{font-size:11px;line-height:1.75;opacity:.34;font-weight:300;max-width:300px}
+.g-note.g-cu{color:#C98A5B;opacity:.78}
+.g-lab{
+  font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#C98A5B;
+  opacity:.8;font-weight:300;
+}
+.g-lab.g-plain{color:#F2EFEA;opacity:.26}
+.g-para{font-size:13px;line-height:1.7;opacity:.6;font-weight:300}
+.g-quote{font-size:15px;line-height:1.6;opacity:.8;font-weight:300}
+
+/* --------------------------- feuille de rejeu --------------------------- */
+.g-basket{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#C98A5B;
+  text-align:center;margin-top:14px;font-weight:300;line-height:1.7;min-height:34px;
+}
+.g-tr{
+  flex:1;min-height:0;padding-top:24px;display:flex;flex-direction:column;gap:11px;
+  overflow-y:auto;scrollbar-width:none;
+}
+.g-tr::-webkit-scrollbar{display:none}
+.g-bot{font-size:12px;line-height:1.52;opacity:.42;font-weight:300;margin:0;max-width:290px}
+.g-me{font-size:14px;line-height:1.45;opacity:.95;font-weight:300;margin:0 0 0 auto;max-width:280px;text-align:right}
+.g-sys{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#C98A5B;opacity:.72;margin:0;font-weight:300}
+.g-block{flex:none;padding-top:18px;opacity:0;transition:opacity .5s ease}
+.g-block.g-on{opacity:1}
+.g-smslab{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#C98A5B;opacity:.8;margin:0 0 9px;font-weight:300}
+.g-sms{font-size:10.5px;line-height:1.75;opacity:.34;font-weight:300;white-space:pre-line;margin:0}
+
+/* --------------------------- feuilles plein écran --------------------------- */
+.g-sheet{
+  position:absolute;inset:0;z-index:70;background:#141414;color:#F2EFEA;
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;font-weight:300;
+  display:flex;flex-direction:column;padding:0 30px 34px;overflow:hidden;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .22s ease, transform .3s cubic-bezier(.3,.8,.3,1);
+}
+.g-sheet.g-on{opacity:1;transform:none}
+.g-body{
+  flex:1;min-height:0;overflow-y:auto;scrollbar-width:none;
+  display:flex;flex-direction:column;gap:22px;padding:22px 0 8px;
+}
+.g-body::-webkit-scrollbar{display:none}
+.g-body.g-mid-v{justify-content:center;text-align:center;align-items:center}
+
+/* ------------------------------ saisie ------------------------------ */
+.g-input{
+  width:100%;background:none;border:0;outline:none;color:#F2EFEA;
+  font-family:inherit;font-weight:200;font-size:42px;letter-spacing:-.03em;
+  text-align:center;padding:0;caret-color:#C98A5B;
+}
+.g-input.g-phrase{font-size:16px;font-weight:300;line-height:1.6;letter-spacing:0;resize:none;min-height:96px}
+.g-input::placeholder{color:#F2EFEA;opacity:.16}
+
+/* --------------------------- progression discrète --------------------------- */
+.g-steps{display:flex;flex-direction:column;gap:12px;width:100%;text-align:left}
+.g-step{font-size:11px;letter-spacing:.06em;opacity:.22;transition:opacity .35s ease;line-height:1.6}
+.g-step.g-on{opacity:.62}
+.g-step.g-done{opacity:.34}
+.g-step.g-done::after{content:' ·';color:#C98A5B}
+.g-pulse{animation:g-breathe 2.4s ease-in-out infinite}
+@keyframes g-breathe{0%,100%{opacity:.26}50%{opacity:.62}}
+
+/* ------------------------------ transitions ------------------------------ */
+.g-fade{animation:g-in .34s ease both}
+@keyframes g-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .g-fade,.g-pulse{animation:none}
+}
